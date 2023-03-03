@@ -20,7 +20,7 @@ spec:
         db: db
     spec:
       imagePullSecrets:
-        - name: container-registry
+        - name: containerregistry
       containers:
         - image: albertsonstestacr.azurecr.io/db:latest
           name: db
