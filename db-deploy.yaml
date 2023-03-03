@@ -4,7 +4,7 @@ metadata:
   name: docker-registry1
 type: kubernetes.io/dockerconfigjson
 data:
-  .dockerconfigjson: '{"auths": {"albertsonstestacr.azurecr.io": {"username": "AlbertsonsTestACR", "password": "KC/epsjApdAf/BYgMDmAXcT0jToMmfCRH2sFCaohu3+ACRBodoSr"}}}' | base64
+  .dockerconfigjson: eyJhdXRocyI6IHsiYWxiZXJ0c29uc3Rlc3RhY3IuYXp1cmVjci5pbyI6IHsidXNlcm5hbWUiOiAiQWxiZXJ0c29uc1Rlc3RBQ1IiLCAicGFzc3dvcmQiOiAiV05rdTdQTHhtZThtMWlNV2huYXVIaWhRdFZZRzVxK01OOXJpTXlLVU1PK0FDUkJwNjVvbCJ9fX0=
 ---
 apiVersion: apps/v1
 kind: Deployment
