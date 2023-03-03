@@ -52,21 +52,4 @@ provider "kubernetes" {
   cluster_ca_certificate = "${base64decode(resource.azurerm_kubernetes_cluster.aks.kube_config.0.cluster_ca_certificate)}"
 }
 
-resource "kubernetes_secret" "example1" {
-  metadata {
-    name = "container-registry"
-    namespace = "default"
-  }
-  type = "kubernetes.io/dockerconfigjson"
-  data = {
-    ".dockerconfigjson" = jsonencode({
-      auths = {
-        "albertsonstestacr.azurecr.io" = {
-          "username" = "AlbertsonsTestACR"
-          "password" = "35yg3gMd5Kc9yx9Gu7xWRblOG9mMQMof5WrizUNymX+ACRAoHOVm"
-        }
-      }
-    })
-  }
-}
 
