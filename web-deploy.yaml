@@ -21,7 +21,7 @@ spec:
         app: web
     spec:
       imagePullSecrets:
-        - name: container-registry
+        - name: containerregistry
       containers:
         - image: albertsonstestacr.azurecr.io/web:latest
           name: web
