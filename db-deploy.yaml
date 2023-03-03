@@ -22,7 +22,7 @@ spec:
       imagePullSecrets:
         - name: container-registry
       containers:
-        - image: ${DOCKER_REG}/db:db-${build_num}
+        - image: albertsonstestacr.azurecr.io/db:latest
           name: db
           ports:
             - containerPort: 3306
