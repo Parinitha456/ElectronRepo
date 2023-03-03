@@ -1,0 +1,48 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: web
+  name: web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      imagePullSecrets:
+        - name: container-registry
+      containers:
+        - image: ${DOCKER_REG}/tomcat:tomcat-${build_num}
+          name: web
+          ports:
+            - containerPort: 8080
+          resources: {}
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: web
+  name: web
+spec:
+  #type: NodePort
+  type: LoadBalancer
+  ports:
+    - name: "web-port"
+      port: 8080
+      targetPort: 8080
+      #nodePort: 30510
+  selector:
+    app: web
