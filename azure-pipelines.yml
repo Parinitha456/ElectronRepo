@@ -23,6 +23,15 @@ steps:
     goals: 'package'
     options: '-DskipITs --settings ./maven/settings.xml'
 
+- task: SnykSecurityScan@1
+  inputs:
+    serviceConnectionEndpoint: 'snyk-svc-connection'
+    testType: 'app'
+    severityThreshold: 'critical'
+    monitorWhen: 'always'
+    failOnIssues: false
+    projectName: 'xyz'
+
 - task: CopyFiles@2
   displayName: 'Copy Files'
   inputs:
