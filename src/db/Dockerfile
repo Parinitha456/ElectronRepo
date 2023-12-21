@@ -1,4 +1,4 @@
-FROM mysql
+FROM mysql:8-oraclelinux8
 
 MAINTAINER me
 
